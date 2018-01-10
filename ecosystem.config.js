@@ -7,7 +7,7 @@ module.exports = {
     production: {
       user: 'ubuntu',
       host: 'ec2-34-226-217-209.compute-1.amazonaws.com',
-      key: '~/.ssh/whitesands_server.pem',
+      key: '~/.ssh/whitesands_ec2.pem',
       ref: 'origin/master',
       repo: 'git@github.com:kgstew/whitesands.git',
       path: '/home/ubuntu/whitesands',
