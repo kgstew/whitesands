@@ -1,0 +1,15 @@
+apps:
+  - script : node_modules/react-server-cli/target/cli.js
+    args   : 'start'
+    name   : 'react-server'
+    watch  : true
+    ignore_watch: '__clientTemp'
+    env    :
+      NODE_ENV: development
+      REACT_SERVER_CONFIGS: _configs/development/
+    env_beta:
+      NODE_ENV: beta
+      REACT_SERVER_CONFIGS: _configs/beta/
+    env_production:
+      NODE_ENV: production
+      REACT_SERVER_CONFIGS: _configs/production/
