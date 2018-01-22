@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App/Blockchain.css';
 
 
 const SHA256 = require("crypto-js/sha256");
@@ -123,7 +122,7 @@ class AddBlockForm extends Component {
   }
 }
 
-class App extends Component {
+class Blockchain extends Component {
   
   constructor(props) {
     super(props);
@@ -168,12 +167,11 @@ class App extends Component {
       ) : "None";
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Blockchain Explorer</h1>
+      <div className="Blockchain">
+        <header className="Blockchain-header">
+          <h1 className="Blockchain-title">Blockchain Explorer</h1>
         </header>
-        <div className="App-body">
+        <div className="Blockchain-body">
           <h2>Create new Blockchain</h2>
           <button onClick={() => this.createNewBlockchain()}>
             Create new Blockchain
@@ -192,4 +190,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Blockchain;
