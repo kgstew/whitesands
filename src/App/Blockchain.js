@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './Blockchain.css';
-
+import './App.css';
 
 const SHA256 = require("crypto-js/sha256");
 
