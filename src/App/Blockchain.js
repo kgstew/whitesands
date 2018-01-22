@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App/Blockchain.css';
+import './Blockchain.css';
 
 
 const SHA256 = require("crypto-js/sha256");
@@ -122,7 +122,7 @@ class AddBlockForm extends Component {
   }
 }
 
-class Blockchain extends Component {
+class Snagchain extends Component {
   
   constructor(props) {
     super(props);
@@ -134,20 +134,20 @@ class Blockchain extends Component {
   }
 
   updateBlockStatus() {
-    this.setState({blocksOnChain: this.whitesandschain.chain});
+    this.setState({blocksOnChain: this.blockchain.chain});
   }
 
   createNewBlockchain() {
-    this.whitesandschain = new Blockchain();
+    this.blockchain = new Blockchain();
     this.updateBlockStatus();
-    console.log("Created new blockchain", this.whitesandschain)
+    console.log("Created new blockchain", this.blockchain)
   }
 
   createNewBlock(value) {
-    if (!this.whitesandschain) { return; }
-    this.whitesandschain.addBlock(new Block(this.whitesandschain.getLatestBlock().index + 1, Date.now(), { value: value }))
+    if (!this.blockchain) { return; }
+    this.blockchain.addBlock(new Block(this.blockchain.getLatestBlock().index + 1, Date.now(), { value: value }))
     this.updateBlockStatus();
-    console.log("Added new block", this.whitesandschain.chain)
+    console.log("Added new block", this.blockchain.chain)
   }
 
   render() {
@@ -167,11 +167,11 @@ class Blockchain extends Component {
       ) : "None";
 
     return (
-      <div className="Blockchain">
-        <header className="Blockchain-header">
-          <h1 className="Blockchain-title">Blockchain Explorer</h1>
+      <div className="blockchain-wrapper">
+        <header className="header">
+          <h1 className="title">Blockchain Explorer</h1>
         </header>
-        <div className="Blockchain-body">
+        <div className="body">
           <h2>Create new Blockchain</h2>
           <button onClick={() => this.createNewBlockchain()}>
             Create new Blockchain
@@ -190,4 +190,4 @@ class Blockchain extends Component {
   }
 }
 
-export default Blockchain;
+export default Snagchain;
