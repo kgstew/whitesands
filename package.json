@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "pm2": "^2.9.1",
+    "react-server": "^0.8.1",
     "react-server-cli": "^0.8.1"
   },
   "scripts": {
