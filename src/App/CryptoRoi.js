@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
+
 
 class AddTradeForm extends Component {
   
@@ -22,13 +24,13 @@ class AddTradeForm extends Component {
 
   changeCoinOne(event) {
     this.setState({
-      coinOne: event.target.value,
+      coinOne: event.target.value.toLowerCase(),
     });
   }
 
   changeCoinTwo(event) {
     this.setState({
-      coinTwo: event.target.value,
+      coinTwo: event.target.value.toLowerCase(),
     });
   }
 
@@ -99,16 +101,27 @@ class CryptoRoi extends Component {
 
     this.state = {
       holdings: [],
-
+      coinsTracked: []
     };
   }
 
   addTrade(tradeData) {
-    console.log(tradeData)
+    this.setState({holdings: tradeData})
   }
 
   recordSale(coin1, coin2, sale_price) {
       console.log("Ca Ching")
+  }
+
+  componentWillMount() {
+
+    axios({
+      method:'get',
+      url:'https://www.bittrex.com/api/v1.1/public/getmarketsummary?market=btc-neo',
+      withCredentials: true // default
+    }).then(res => {
+      console.log(res)
+    });
   }
 
   render() {
